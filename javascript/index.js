@@ -32,6 +32,9 @@ setInterval(updateParisTime, 1000);
 
 function updateCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
 
   event.target.options[event.target.selectedIndex].dataset.city ||
